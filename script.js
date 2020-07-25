@@ -111,4 +111,4 @@ playAgainBtn.addEventListener('click', () => {
     // displayWOrds();
     // console.log("resety");
 })
-displayWOrds();
+displayWOrds(); 
