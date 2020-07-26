@@ -16,9 +16,11 @@ let correctWords = [] //array to store the correct letters
 let wrongWords = [] // array to strong the wrong letters
 
 
+
+//functionto display word and display the win message if the user enters a correct word
 const displayWOrds = () => {
 
-    // console.log(selectedWord);
+
     wordEl.innerHTML = `
     ${selectedWord
             .split('') //creating an array of string
@@ -32,10 +34,10 @@ const displayWOrds = () => {
         arr.push(element.innerText)
     })
     let arr2 = arr.join('')
-    // console.log(arr2);
+    
     console.log(`${arr2}=${selectedWord}`);
     if (arr2 === selectedWord) {
-        // console.log('you have won');
+       
         finalMessage.innerText = "You Have Won 😁😁"
         popup.classList.remove('hide')
         
@@ -46,6 +48,8 @@ const displayWOrds = () => {
 
 
 }
+
+// function to display wrong words
 const showWrongWords = (wrong) => {
     console.log("Wrong Words ", wrongWords);
     let wrongWordss = ''
@@ -56,12 +60,13 @@ const showWrongWords = (wrong) => {
     wrongLettersEl.innerHTML = `<p>Wrong</p>
     <span>${wrongWordss}</span > `
 
+    // make stickman parts visible one by one if the user enters wrong number
     figureArr[i].classList.remove('figure-part')
     i++;
     if (i == 6) {
         finalMessage.innerText = "You Have Lost 😁😁"
         popup.classList.remove('hide')
-        // figureArr.forEach((element)=> element.classList.add('figure-part'))
+        
         
     }
 }
@@ -80,7 +85,7 @@ window.addEventListener('keydown', (e) => {
         if (selectedWord.includes(e.key.toUpperCase())) {
             if (!correctWords.includes(e.key.toUpperCase())) {
                 correctWords.push(e.key.toUpperCase())
-                // console.log(correctWords);
+               
                 displayWOrds();
             }
             else {
@@ -111,7 +116,6 @@ playAgainBtn.addEventListener('click', () => {
     wrongWords = [];
     wrongLettersEl.innerHTML = '';
     displayWOrds();
-    // displayWOrds();
-    // console.log("resety");
+    
 })
 displayWOrds(); 
