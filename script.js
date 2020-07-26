@@ -44,6 +44,7 @@ const displayWOrds = () => {
 
 
 
+
 }
 const showWrongWords = (wrong) => {
     console.log("Wrong Words ", wrongWords);
@@ -65,6 +66,7 @@ const showWrongWords = (wrong) => {
     }
 }
 
+// Show notification if the letter is already typed by the user
 const showNotification = () => {
     notification.classList.add('show-notification')
 
@@ -99,6 +101,7 @@ window.addEventListener('keydown', (e) => {
     }
 })
 
+// reset everything and load new game whenever user type play again button
 playAgainBtn.addEventListener('click', () => {
     popup.classList.add('hide')
     selectedWord = wordsarr[Math.floor(Math.random() * wordsarr.length)]
